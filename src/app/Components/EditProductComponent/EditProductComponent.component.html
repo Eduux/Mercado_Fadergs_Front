@@ -1,0 +1,21 @@
+<h3 style="margin-bottom: 20px;">Editar produto</h3>
+<form [formGroup]="addProductForm" (ngSubmit)="editarProduto(id.value)">
+    <input #id formControlName="id" type="hidden">
+    <div class="form-group">
+       <label for="nome">Nome*</label>
+       <input formControlName="nome" type="text" class="form-control" id="nome" disabled>
+    </div>
+    <div class="form-group">
+        <label for="tipo">Tipo*</label>
+        <input formControlName="tipo" type="text" class="form-control" id="tipo" disabled>
+    </div>
+    <div class="form-group">
+        <label for="valor">Valor*</label>
+        <input formControlName="valor" type="text" currencyMask class="form-control" id="valor" currencyMask [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',' }">
+    </div>
+    <div class="form-group">
+        <label for="estoque">Estoque*</label>
+        <input formControlName="estoque" type="number" id="estoque" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Editar</button>
+</form>

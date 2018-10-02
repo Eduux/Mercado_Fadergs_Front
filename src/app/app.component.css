@@ -1,0 +1,12 @@
+.navboard a {
+    text-decoration: none;
+    color: #CD363B;
+}
+
+.navboard h2 {
+    margin-bottom: 25px;
+}
+
+.navboard {
+    padding: 20px 0px;
+}

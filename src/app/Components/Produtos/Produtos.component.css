@@ -1,0 +1,8 @@
+.action-icons i {
+    margin: 0px 3px;
+    cursor: pointer;
+}
+
+.form-inline * {
+    margin-right: 10px;
+}
