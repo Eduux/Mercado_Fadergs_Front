@@ -23,7 +23,9 @@ export class NewProductComponent {
       nome: ['', Validators.required],
       tipo: ['', Validators.required],
       valor: ['', Validators.required],
-      estoque: ['', Validators.required]
+      estoque_entrada: ['', Validators.required],
+      vendas: [0],
+      estoque_loja: ['', Validators.required]
     });
 
   }

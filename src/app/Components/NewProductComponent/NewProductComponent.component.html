@@ -13,8 +13,13 @@
         <input formControlName="valor" type="text" currencyMask class="form-control" id="valor" currencyMask [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',' }">
     </div>
     <div class="form-group">
-        <label for="estoque">Estoque*</label>
-        <input formControlName="estoque" type="number" id="estoque" class="form-control">
+        <label for="estoque">Estoque entrada*</label>
+        <input formControlName="estoque_entrada" type="number" id="estoque" class="form-control">
+        <input formControlName="vendas" type="hidden">
+    </div>
+    <div class="form-group">
+        <label for="estoque_loja">Estoque loja*</label>
+        <input formControlName="estoque_loja" type="number" id="estoque_loja" class="form-control">
     </div>
     <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>

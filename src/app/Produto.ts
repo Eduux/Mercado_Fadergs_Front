@@ -3,5 +3,7 @@ export class Produto {
     nome: string;
     tipo: string;
     valor: number;
-    estoque: number;
+    estoque_entrada: number;
+    vendas: number;
+    estoque_loja:number;
   }
