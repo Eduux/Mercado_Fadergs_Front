@@ -3,7 +3,7 @@ import senha from '../senha';
 
 var auth = function(){
     return new Promise(
-    function (resolve) {
+    function (resolve, reject) {
         swal({
             text: "Digite a senha para executar a açāo!",
             input: "password",

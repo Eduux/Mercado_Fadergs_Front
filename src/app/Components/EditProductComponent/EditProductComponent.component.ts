@@ -26,7 +26,7 @@ export class EditProductComponent implements OnInit {
         tipo: ['', Validators.required],
         valor: ['', Validators.required],
         estoque_entrada: ['', Validators.required],
-        vendas: [''],
+        vendas: ['', Validators.required],
         estoque_loja: ['', Validators.required]
     });
 

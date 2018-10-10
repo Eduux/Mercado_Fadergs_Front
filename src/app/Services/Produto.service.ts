@@ -45,12 +45,21 @@ export class ProdutoService {
 
   editarProduto(id, produto){
     return new Promise(
-    function (resolve) {
+    function (resolve, reject) {
       auth().then(function() {
         swal("Sucesso!", "Produto editado com sucesso!", "success");
         resolve();
         return this.http.put(this.productUrl+id, produto).subscribe();
       }.bind(this))
+    }.bind(this)
+    );
+  }
+
+  editarProdutoNoAuth(id, produto){
+    return new Promise(
+    function (resolve) {
+        resolve();
+        return this.http.put(this.productUrl+id, produto).subscribe();
     }.bind(this)
     );
   }

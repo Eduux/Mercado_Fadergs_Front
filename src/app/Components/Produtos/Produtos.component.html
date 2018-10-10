@@ -8,7 +8,18 @@
     <input #searchBox class="form-control mr-sm-2" type="search" placeholder="Pesquisar Produto" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchProdutos(type.value, searchBox.value);">GO!</button>
    </div>
-   <button class="btn btn-outline-success" type="button" (click)="getProdutos()">Mostrar Todos</button>
+
+   <div class="form-inline">
+    <label for="ordernar">Ordernar</label>
+    <select #order name="ordernar" class="form-control" id="ordernar">
+        <option value="1">Mais vendidos</option>
+        <option value="2">Menos vendidos</option>
+        <option value="3">Estoque loja +</option>
+        <option value="4">Estoque loja -</option>
+    </select>
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="orderby(order.value);">OK</button>
+</div>
+   <button class="btn btn-outline-success" type="button" (click)="getProdutos()">Resetar</button>
 </nav>
 
 <table class="table">
@@ -17,7 +28,9 @@
             <th scope="col">Nome</th>
             <th scope="col">Tipo</th>
             <th scope="col">Valor</th>
-            <th scope="col">Estoque</th>
+            <th scope="col">Estoque de entrada</th>
+            <th scope="col">Vendas</th>
+            <th scope="col">Estoque de loja</th>
             <th scope="col">Ações</th>
         </tr>
     </thead>
@@ -27,8 +40,32 @@
         <td>{{produto.tipo}}</td>
         <td>R$ {{produto.valor}}</td>
         <td>{{produto.estoque_entrada}}</td>
-        <td class="action-icons"><i class="fas fa-edit" title="Editar" (click)="editProduct(produto.id)"></i><i class="fas fa-trash-alt" title="Excluir" (click)="deleteProduto(produto)"></i></td>
+        <td>{{produto.vendas}}</td>
+        <td>{{produto.estoque_loja}}</td>
+        <td class="action-icons"><i class="fas fa-edit" title="Editar" (click)="editProduct(produto.id)"></i><i class="fas fa-trash-alt" title="Excluir" (click)="deleteProduto(produto)"></i>
+        <i class="fas fa-dollar-sign" (click)="getProduto(produto.id)"></i>
+        </td>
     </tr>
 </tbody>
 
-
+<div class="modal" tabindex="-1" role="dialog" [hidden]="!activeModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Vendas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal = false;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Nome produto: {{Produto.nome}}</p>
+          <p>Total vendas produto: {{Produto.vendas}}</p>
+          <button type="button" class="btn btn-success" (click)="vender()" style="margin-right: 20px;">Vender</button>
+          <button type="button" class="btn btn-danger" (click)="cancelarVenda()">Cancelar Venda</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal = false;">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>

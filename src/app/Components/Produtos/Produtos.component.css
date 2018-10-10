@@ -6,3 +6,8 @@
 .form-inline * {
     margin-right: 10px;
 }
+
+.modal {
+    background-color: #0000008a;
+    display: block;
+}
